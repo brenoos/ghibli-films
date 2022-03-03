@@ -1,4 +1,4 @@
-import { Film } from './Film';
+import { Film } from './';
 
 export async function getFilms(title?: string | null): Promise<Film[]> {
   const response = await fetch('https://ghibliapi.herokuapp.com/films');

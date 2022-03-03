@@ -1,11 +1,12 @@
 import {
   Form,
+  Link,
   LinksFunction,
   LoaderFunction,
   MetaFunction,
   useLoaderData,
 } from 'remix';
-import { Film } from '~/services/Film/Film';
+import { Film } from '~/services/Film';
 import { getFilms } from '~/services/Film/getFilms';
 
 export const meta: MetaFunction = () => ({
@@ -49,12 +50,15 @@ export default function FilmsIndex() {
 
       <div className="grid grid-cols-4 gap-4">
         {films.map(film => (
-          <div
+          <Link
+            title={film.title}
+            to={film.id}
             key={film.id}
-            className="hover:shadow-2xl hover:scale-105 hover:font-bold cursor-pointer">
+            className="hover:shadow-2xl hover:scale-105 hover:font-bold cursor-pointer"
+            prefetch="intent">
             <div>{film.title}</div>
             <img src={film.image} alt={film.title} />
-          </div>
+          </Link>
         ))}
       </div>
     </div>
