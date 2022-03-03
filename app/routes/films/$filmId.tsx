@@ -7,7 +7,6 @@ export const loader: LoaderFunction = async ({ params }) => {
   invariant(params.filmId, 'expected params.filmId');
 
   const film = await getFilmById(params.filmId);
-  console.log('fetching gilm... -->', film.title);
 
   return film;
 };
