@@ -25,6 +25,25 @@ export default function FilmsIndex() {
   return (
     <div className="p-16 font-sans">
       <h1 className="text-5xl font-bold text-center">Studio Ghibli Films</h1>
+
+      <form className="py-5">
+        <label className="font-bold">
+          Search{' '}
+          <input
+            type="text"
+            name="title"
+            placeholder="Type a title..."
+            className="border-2 rounded py-2 px-3"
+          />
+        </label>
+
+        <button
+          type="submit"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-2">
+          Search
+        </button>
+      </form>
+
       <div className="grid grid-cols-4 gap-4">
         {films.map(film => (
           <div
