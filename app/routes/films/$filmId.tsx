@@ -1,5 +1,6 @@
 import { LoaderFunction, useLoaderData } from 'remix';
 import invariant from 'tiny-invariant';
+import CharacterList from '~/components/CharacterList';
 import FilmBanner from '~/components/FilmBanner';
 import { Film } from '~/services/Film';
 import { getFilmById } from '~/services/Film/getFilmById';
@@ -19,6 +20,14 @@ export default function FilmId() {
   return (
     <div>
       <FilmBanner film={film} />
+
+      <div className="p-5">
+        <p>{film.description}</p>
+
+        <div className="flex py-5 space-x-5">
+          <CharacterList characters={film.characters} />
+        </div>
+      </div>
     </div>
   );
 }
