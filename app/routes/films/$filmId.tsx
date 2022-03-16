@@ -30,6 +30,22 @@ export const action: ActionFunction = async ({ request, params }) => {
     filmId: params.filmId,
   };
 
+  /**Basic Validation */
+  const errors = { name: '', message: '' };
+
+  if (!comment.name) {
+    errors.name = 'Please provide a name';
+  }
+
+  if (!comment.message) {
+    errors.message = 'Please provide a comment';
+  }
+
+  if (errors.name || errors.message) {
+    const values = Object.fromEntries(formData);
+    return { errors, values };
+  }
+
   await addComment(comment);
 
   return redirect(`/films/${params.filmId}`);
