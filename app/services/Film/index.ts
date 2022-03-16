@@ -1,3 +1,5 @@
+import { CommentEntry } from '../Comments';
+
 export type FilmCharacter = {
   id: string;
   name: string;
@@ -16,4 +18,5 @@ export type Film = {
   movie_banner: string;
   people: string[];
   characters?: FilmCharacter[];
+  comments?: CommentEntry[];
 };
